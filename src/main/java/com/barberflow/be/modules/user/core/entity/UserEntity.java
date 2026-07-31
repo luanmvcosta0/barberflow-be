@@ -22,5 +22,33 @@ public class UserEntity {
     this.createdAt = LocalDateTime.now();
     this.updatedAt = LocalDateTime.now();
   }
+
+  public Long getId() {
+    return id;
+  }
+
+  public String getCpf() {
+    return cpf;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public String getEmail() {
+    return email;
+  }
+
+  public String getPassword() {
+    return password;
+  }
+
+  public LocalDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+  public LocalDateTime getUpdatedAt() {
+    return updatedAt;
+  }
   
 }
