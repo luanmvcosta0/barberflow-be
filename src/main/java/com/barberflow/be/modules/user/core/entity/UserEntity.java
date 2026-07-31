@@ -15,11 +15,33 @@ public class UserEntity {
   public UserEntity() {}
 
   public UserEntity(String cpf, String name, String email, String password) {
-    this.cpf = cpf;
+    this.cpf = validateCpf(cpf);
     this.name = name;
-    this.email = email;
+    this.email = validateEmail(email);
     this.password = password;
     this.createdAt = LocalDateTime.now();
+    this.updatedAt = LocalDateTime.now();
+  }
+
+  private String validateCpf(String cpf) {
+    if (cpf == null || cpf.length() !=11) {
+      throw new IllegalArgumentException("CPF inválido");
+    }
+
+    return cpf;
+  }
+
+  private String validateEmail(String email) {
+    if (email == null || !email.contains("@")) {
+      throw new IllegalArgumentException("Email inválido");
+    }
+
+    return email;
+  }
+
+  public void atualizarDados(String name, String email) {
+    this.name = name;
+    this.email = validateEmail(email);
     this.updatedAt = LocalDateTime.now();
   }
 
