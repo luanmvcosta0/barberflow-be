@@ -16,6 +16,12 @@ public class CreateUserCaseImpl implements CreateUserUseCase {
   @Override
   public UserEntity execute(UserEntity user) {
 
+    var existsCountByEmail = userGateway.existsByEmail(user.getEmail());
+
+    if(existsCountByEmail == true) {
+      throw new IllegalArgumentException("Email ja cadastrado");
+    }
+
     return userGateway.createUser(new UserEntity(
       user.getId(),
       user.getFullName(),

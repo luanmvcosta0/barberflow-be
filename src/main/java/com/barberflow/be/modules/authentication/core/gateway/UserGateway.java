@@ -9,4 +9,6 @@ public interface UserGateway {
   UserEntity updateUser(UserEntity user);
   UserEntity deleteUser(Long id);
 
+  Boolean existsByEmail(String email);
+
 }
