@@ -2,7 +2,7 @@ package com.barberflow.be.modules.authentication.core.entities;
 
 import java.time.LocalDateTime;
 
-public class UserEntity {
+public class User {
 
   private Long id;
   private String fullName;
@@ -11,9 +11,9 @@ public class UserEntity {
   private LocalDateTime createdAt;
   private LocalDateTime updatedAt;
 
-  public UserEntity() {}
+  public User() {}
 
-  public UserEntity(Long id, String fullName, String email, String password, LocalDateTime createdAt, LocalDateTime updatedAt) {
+  public User(Long id, String fullName, String email, String password, LocalDateTime createdAt, LocalDateTime updatedAt) {
     this.id = id;
     this.fullName = fullName;
     this.email = email;

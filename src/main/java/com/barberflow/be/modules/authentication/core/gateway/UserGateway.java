@@ -1,13 +1,15 @@
 package com.barberflow.be.modules.authentication.core.gateway;
 
-import com.barberflow.be.modules.authentication.core.entities.UserEntity;
+import java.util.Optional;
+
+import com.barberflow.be.modules.authentication.core.entities.User;
 
 public interface UserGateway {
   
-  UserEntity createUser(UserEntity user);
-  UserEntity findUserById(Long id);
-  UserEntity updateUser(UserEntity user);
-  UserEntity deleteUser(Long id);
+  User createUser(User user);
+  Optional<User> findUserById(Long id);
+  User updateUser(User user);
+  User deleteUser(Long id);
 
   Boolean existsByEmail(String email);
 

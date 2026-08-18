@@ -2,7 +2,7 @@ package com.barberflow.be.modules.authentication.core.usecases;
 
 import java.time.LocalDateTime;
 
-import com.barberflow.be.modules.authentication.core.entities.UserEntity;
+import com.barberflow.be.modules.authentication.core.entities.User;
 import com.barberflow.be.modules.authentication.core.gateway.UserGateway;
 
 public class UpdateUserUseCaseImpl implements UpdateUserUseCase{
@@ -14,14 +14,14 @@ public class UpdateUserUseCaseImpl implements UpdateUserUseCase{
   }
 
   @Override
-  public UserEntity execute(UserEntity user) {
+  public User execute(User user) {
     var existsUser = userGateway.findUserById(user.getId());
     
     if(existsUser == null) {
       throw new IllegalArgumentException("Usuário não encontrado");
     }
 
-    return userGateway.updateUser(new UserEntity(
+    return userGateway.updateUser(new User(
       user.getId(),
       user.getFullName(),
       user.getEmail(),

@@ -2,7 +2,7 @@ package com.barberflow.be.modules.authentication.core.usecases;
 
 import java.time.LocalDateTime;
 
-import com.barberflow.be.modules.authentication.core.entities.UserEntity;
+import com.barberflow.be.modules.authentication.core.entities.User;
 import com.barberflow.be.modules.authentication.core.gateway.UserGateway;
 
 public class CreateUserCaseImpl implements CreateUserUseCase {
@@ -14,7 +14,7 @@ public class CreateUserCaseImpl implements CreateUserUseCase {
   }
 
   @Override
-  public UserEntity execute(UserEntity user) {
+  public User execute(User user) {
 
     var existsCountByEmail = userGateway.existsByEmail(user.getEmail());
 
@@ -22,7 +22,7 @@ public class CreateUserCaseImpl implements CreateUserUseCase {
       throw new IllegalArgumentException("Email ja cadastrado");
     }
 
-    return userGateway.createUser(new UserEntity(
+    return userGateway.createUser(new User(
       user.getId(),
       user.getFullName(),
       user.getEmail(),
